@@ -1,0 +1,180 @@
+﻿
+@{
+    ViewData["Title"] = "Index";
+}
+<head>
+    <style>
+        .grid-container {
+            display: grid;
+            grid-template-columns: auto auto;
+            grid-gap: 10px;
+            padding: 10px;
+        }
+
+        .grid-item {
+            display: grid;
+            grid-template-columns: auto auto;
+            grid-gap: 10px;
+            border: 1px solid rgba(0, 0, 0, 0.8);
+            padding: 20px;
+        }
+
+        .grid-item-picture {
+            padding: 20px;
+        }
+
+        .faq-box {
+            border: 1px solid rgba(0, 0, 0, 0.8);
+            padding: 20px;
+            font-size: 20px;
+            text-align: left;
+            color: white;
+        }
+
+        .faq-content {
+            border: 1px solid rgba(0, 0, 0, 0.4);
+            display: none;
+            padding: 5px;
+        }
+
+        .panel-q {
+        }
+
+        .panel-a {
+            display: none;
+        }
+
+        .clickable {
+            background-color: blue;
+            color: white;
+            cursor: pointer;
+            padding: 18px;
+            width: 100%;
+            border: none;
+            text-align: left;
+            outline: none;
+            font-size: 15px;
+        }
+
+        /* Style the button that is used to open and close the collapsible content */
+        .collapsible {
+            background-color: #eee;
+            color: #444;
+            cursor: pointer;
+            padding: 18px;
+            width: 100%;
+            border: none;
+            text-align: left;
+            outline: none;
+            font-size: 15px;
+        }
+
+            /* Add a background color to the button if it is clicked on (add the .active class with JS), and when you move the mouse over it (hover) */
+            .active, .collapsible:hover {
+                background-color: #ccc;
+            }
+
+        /* Style the collapsible content. Note: hidden by default */
+        .content {
+            padding: 0 18px;
+            background-color: white;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.2s ease-out;
+        }
+
+        .active, .clickable:hover {
+            background-color: red;
+        }
+    </style>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+
+@*<body>
+    <button type="button" class="collapsible">Main Collapsible</button>
+    <div class="content">
+        <button type="button" class="collapsible">Collapsible 1</button>
+        <div class="content">
+            <p>Data 1</p>
+        </div>
+        <button type="button" class="collapsible">Collapsible 2</button>
+        <div class="content">
+            <p>Data 2</p>
+        </div>
+        <button type="button" class="collapsible">Collapsible 3</button>
+        <div class="content">
+            <p>Data 3</p>
+        </div>
+    </div>
+
+    <script>
+        var coll = document.getElementsByClassName("collapsible");
+        var i;
+
+        for (i = 0; i < coll.length; i++) {
+            coll[i].addEventListener("click", function () {
+                this.classList.toggle("active");
+                var content = this.nextElementSibling;
+                if (content.style.maxHeight) {
+                    content.style.maxHeight = null;
+                } else {
+                    content.style.maxHeight = content.scrollHeight + "px";
+                }
+            });
+        }
+    </script>
+</body>*@
+
+<body>
+
+    <h1><b>GDEX Prepaid Overview</b></h1>
+    <br /><br />
+    <h6>
+        With GDEX Prepaid, you will experience hassle free shipping with a flat rate price.
+        Enjoy our four series of prepaid products specially designed for all your shipping needs.
+    </h6>
+    <br />
+
+    <h5><b>Prepaid Product Series</b></h5>
+    <div class="grid-container">
+        <div class="grid-item">
+            <div>1</div>
+            <div class="grid-item-picture">picture</div>
+        </div>
+        <div class="grid-item">
+            <div>2</div>
+            <div class="grid-item-picture">picture</div>
+        </div>
+        <div class="grid-item">
+            <div>3</div>
+            <div class="grid-item-picture">picture</div>
+        </div>
+        <div class="grid-item">
+            <div>4</div>
+            <div class="grid-item-picture">picture</div>
+        </div>
+    </div>
+
+    <br />
+
+    <div class="faq-box clickable" id="info-faq">
+        <b>Frequently Asked Questions (FAQ) </b>
+    </div>
+
+    <div class="faq-content">
+        <div class="panel-q">
+            <p>How do I choose which GDEX Prepaid to use?</p>
+            <div class="panel-a" id="collapse2">
+                <p>We create different series to cater for all your needs so everyone can enjoy convenient and flexible shipping. Please refer to Compare GDEX Prepaid to decide which GDEX Prepaid suits you best.<br /><br />Try our Speed-DOC which comes with a premium envelope making sure your document arrives in mint condition. Speed-PAC and eValue packaging too small for your shipment? Don't worry, Speed-PAC is just for you. Put everything into our sturdy Speed-PAC, fill in shipping details and it is good to go. On a tight budget and have small packages to deliver? eValue may just be your little gem. With prices starting from RM8, what are you waiting for? Speed-PAC and eValue packaging too small for your shipment, don't worry. With Premium Plus, it is all about flexible shipping. Just pack your shipment securely in your own packaging material and drop it off. <br /><br />Still unsure, no worries. Please contact our helpdesk at 03- 7787 6677 for more information.</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        $(".faq-box").click(function () {
+            $('.faq-content').slideToggle(500);
+        });
+    </script>
+
+    <p>Hello from our PREPAID PRODUCT</p>
+</body>
