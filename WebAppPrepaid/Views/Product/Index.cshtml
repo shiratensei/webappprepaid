@@ -281,10 +281,12 @@
             //var isVis = $(this).next().is(":visible");
 
             $(this).next().slideToggle(500);
+            console.log("toggled");
 
             var isHidden = $(this).next().is(":hidden");
             if (isHidden) {
-                $("panel.a").each().hide();
+                console.log("isHidden");
+                $(".panel-a").each().hide();
             };
 
             $(this).toggleClass("red-panel");
