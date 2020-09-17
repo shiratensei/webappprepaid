@@ -2,8 +2,22 @@
 @{
     ViewData["Title"] = "Index";
 }
+@{
+    var imagePath1 = @"\img\SpeedDOC_Normal_Small_new.png";
+    var imagePath2 = @"\img\speedpac_10kg_new.png";
+}
 <head>
     <style>
+        img {
+            max-width: 100%;
+            max-height: 100%;
+        }
+
+        .heading {
+            font-size: 20px;
+            font-weight: bold;
+        }
+
         .grid-container {
             display: grid;
             grid-template-columns: auto auto;
@@ -13,7 +27,7 @@
 
         .grid-item {
             display: grid;
-            grid-template-columns: auto auto;
+            grid-template-columns: 1fr 1fr;
             grid-gap: 10px;
             border: 1px solid rgba(0, 0, 0, 0.8);
             padding: 20px;
@@ -23,13 +37,18 @@
             padding: 20px;
         }
 
-        .faq-box {
+        .faq-head {
             border: 1px solid rgba(0, 0, 0, 0.8);
             padding: 20px;
             font-size: 20px;
             text-align: left;
             color: white;
+            background-color: blue;
         }
+
+            .faq-head:hover {
+                background-color: red;
+            }
 
         .faq-content {
             border: 1px solid rgba(0, 0, 0, 0.4);
@@ -40,20 +59,25 @@
         .panel-q {
         }
 
+            .panel-q:after {
+                content: '\002B';
+                color: black;
+                font-weight: bold;
+                float: right;
+                margin-left: 5px;
+            }
+
         .panel-a {
             display: none;
+            overflow: hidden;
+            background-color: #f1f1f1
         }
 
         .clickable {
-            background-color: blue;
-            color: white;
             cursor: pointer;
-            padding: 18px;
             width: 100%;
             border: none;
-            text-align: left;
             outline: none;
-            font-size: 15px;
         }
 
         /* Style the button that is used to open and close the collapsible content */
@@ -83,47 +107,56 @@
             transition: max-height 0.2s ease-out;
         }
 
-        .active, .clickable:hover {
+        .clickable:hover {
+            /*background-color: red;*/
+        }
+
+        .red-panel {
             background-color: red;
         }
+
+            .red-panel:after {
+                content: "\2212";
+                color: white;
+            }
     </style>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 </head>
 
 @*<body>
-    <button type="button" class="collapsible">Main Collapsible</button>
-    <div class="content">
-        <button type="button" class="collapsible">Collapsible 1</button>
+        <button type="button" class="collapsible">Main Collapsible</button>
         <div class="content">
-            <p>Data 1</p>
+            <button type="button" class="collapsible">Collapsible 1</button>
+            <div class="content">
+                <p>Data 1</p>
+            </div>
+            <button type="button" class="collapsible">Collapsible 2</button>
+            <div class="content">
+                <p>Data 2</p>
+            </div>
+            <button type="button" class="collapsible">Collapsible 3</button>
+            <div class="content">
+                <p>Data 3</p>
+            </div>
         </div>
-        <button type="button" class="collapsible">Collapsible 2</button>
-        <div class="content">
-            <p>Data 2</p>
-        </div>
-        <button type="button" class="collapsible">Collapsible 3</button>
-        <div class="content">
-            <p>Data 3</p>
-        </div>
-    </div>
 
-    <script>
-        var coll = document.getElementsByClassName("collapsible");
-        var i;
+        <script>
+            var coll = document.getElementsByClassName("collapsible");
+            var i;
 
-        for (i = 0; i < coll.length; i++) {
-            coll[i].addEventListener("click", function () {
-                this.classList.toggle("active");
-                var content = this.nextElementSibling;
-                if (content.style.maxHeight) {
-                    content.style.maxHeight = null;
-                } else {
-                    content.style.maxHeight = content.scrollHeight + "px";
-                }
-            });
-        }
-    </script>
-</body>*@
+            for (i = 0; i < coll.length; i++) {
+                coll[i].addEventListener("click", function () {
+                    this.classList.toggle("active");
+                    var content = this.nextElementSibling;
+                    if (content.style.maxHeight) {
+                        content.style.maxHeight = null;
+                    } else {
+                        content.style.maxHeight = content.scrollHeight + "px";
+                    }
+                });
+            }
+        </script>
+    </body>*@
 
 <body>
 
@@ -138,43 +171,126 @@
     <h5><b>Prepaid Product Series</b></h5>
     <div class="grid-container">
         <div class="grid-item">
-            <div>1</div>
-            <div class="grid-item-picture">picture</div>
+            <div>
+                <p class="heading">Speed-DOC</p>
+                <p>Use Speed-DOC. Speedy-LAH! Starting at RM8.27.</p>
+                <p><a href="https://www.gdexpress.com/malaysia/services-product/gdex-prepaid/speed-doc/"> Learn More > </a>
+            </div>
+            <div class="grid-item-picture">
+                <img src="@imagePath1" />
+            </div>
         </div>
         <div class="grid-item">
-            <div>2</div>
-            <div class="grid-item-picture">picture</div>
+            <div>
+                <p class="heading">Speed-PAC</p>
+                <p>PAC it up. Starting at RM16.96.</p>
+                <p><a href="https://www.gdexpress.com/malaysia/services-product/gdex-prepaid/speed-pac/"> Learn More > </a>
+            </div>
+            <div class="grid-item-picture">
+                <img src="@imagePath2" />
+            </div>
         </div>
         <div class="grid-item">
-            <div>3</div>
-            <div class="grid-item-picture">picture</div>
+            <div>
+                <p class="heading">Premium Plus</p>
+                <p>Flexible shipping to suit your every need. Starting at RM11.66.</p>
+                <p><a href="https://www.gdexpress.com/malaysia/services-product/gdex-prepaid/premium-plus/"> Learn More > </a>
+            </div>
+            <div class="grid-item-picture">
+                <img src="@imagePath1" />
+            </div>
         </div>
         <div class="grid-item">
-            <div>4</div>
-            <div class="grid-item-picture">picture</div>
+            <div>
+                <p class="heading">eValue</p>
+                <p>We got you covered with our affordable eValue. Starting at RM8.27.</p>
+                <p><a href="https://www.gdexpress.com/malaysia/services-product/gdex-prepaid/evalue/"> Learn More > </a>
+            </div>
+            <div class="grid-item-picture">
+                <img src="@imagePath2" />
+            </div>
         </div>
     </div>
 
     <br />
 
-    <div class="faq-box clickable" id="info-faq">
+    <div class="faq-head clickable" id="info-faq">
         <b>Frequently Asked Questions (FAQ) </b>
     </div>
 
     <div class="faq-content">
-        <div class="panel-q">
-            <p>How do I choose which GDEX Prepaid to use?</p>
-            <div class="panel-a" id="collapse2">
-                <p>We create different series to cater for all your needs so everyone can enjoy convenient and flexible shipping. Please refer to Compare GDEX Prepaid to decide which GDEX Prepaid suits you best.<br /><br />Try our Speed-DOC which comes with a premium envelope making sure your document arrives in mint condition. Speed-PAC and eValue packaging too small for your shipment? Don't worry, Speed-PAC is just for you. Put everything into our sturdy Speed-PAC, fill in shipping details and it is good to go. On a tight budget and have small packages to deliver? eValue may just be your little gem. With prices starting from RM8, what are you waiting for? Speed-PAC and eValue packaging too small for your shipment, don't worry. With Premium Plus, it is all about flexible shipping. Just pack your shipment securely in your own packaging material and drop it off. <br /><br />Still unsure, no worries. Please contact our helpdesk at 03- 7787 6677 for more information.</p>
-            </div>
+        <div class="panel-q clickable">
+            What is GDEX Prepaid?
         </div>
+        <div class="panel-a">
+            GDEX Prepaid is a series of products designed to bring convenience to individuals and small businesses. Say goodbye to adrenaline filled moments fumbling to complete your shipping details before lunch break is over. Say goodbye to the awkward grunts from the person behind you whilst you're racing to prepare your shipments. Think ahead. Prepare ahead. Buy GDEX Prepaid. When your shipment is ready just drop it off. It's that simple.
+        </div>
+        <!-- end of qa1 -->
+        <div class="panel-q clickable">
+            How do I choose which GDEX Prepaid to use?
+        </div>
+        <div class="panel-a">
+            We create different series to cater for all your needs so everyone can enjoy convenient and flexible shipping. Please refer to Compare GDEX Prepaid to decide which GDEX Prepaid suits you best.<br /><br />Try our Speed-DOC which comes with a premium envelope making sure your document arrives in mint condition. Speed-PAC and eValue packaging too small for your shipment? Don't worry, Speed-PAC is just for you. Put everything into our sturdy Speed-PAC, fill in shipping details and it is good to go. On a tight budget and have small packages to deliver? eValue may just be your little gem. With prices starting from RM8, what are you waiting for? Speed-PAC and eValue packaging too small for your shipment, don't worry. With Premium Plus, it is all about flexible shipping. Just pack your shipment securely in your own packaging material and drop it off. <br /><br />Still unsure, no worries. Please contact our helpdesk at 03- 7787 6677 for more information.
+        </div>
+        <!-- end of qa2 -->
+        <div class="panel-q clickable">
+            Can I still ship using an expired GDEX Prepaid?
+        </div>
+        <div class="panel-a">
+            Unfortunately, we have to reject any GDEX Prepaid that exceeds its expiry date.
+        </div>
+        <!-- end of qa3 -->
+        <div class="panel-q clickable">
+            Can I ship overseas using GDEX Prepaid?
+        </div>
+        <div class="panel-a">
+            No, GDEX Prepaid is strictly for local delivery only.
+        </div>
+        <!-- end of qa4 -->
+        <div class="panel-q clickable">
+            What if I exceed the maximum weight limit?
+        </div>
+        <div class="panel-a">
+            If you are shipping with Speed-PAC or Premium Plus, you are required to buy Prepaid Add On sticker for that extra weight. Please refer to Prepaid Add On for more details. If your are shipping with Speed-DOC or e-Value, we will not accept your overweight shipment.
+        </div>
+        <!-- end of qa5 -->
+        <div class="panel-q clickable">
+            Where do I buy GDEX Prepaid?
+        </div>
+        <div class="panel-a">
+            GDEX Prepaid is available in all GDEX Stations and selected MBE &amp; IKOBANA outlets. Note: Speed PAC, Speed-DOC Normal (Large), Speed-DOC Inter-region (Small) and Speed-DOC Inter-region (Large) is available in GDEX stations only.
+        </div>
+        <!-- end of qa6 -->
+        <div class="panel-q clickable">
+            Do you offer pick-up services?
+        </div>
+        <div class="panel-a">
+            Yes we do. Please contact CS Hotline at 03 - 6419 5003 or a GDEX station near you to arrange for shipment pick-up. Pick-up surchage is RM4.70 per pick-up arrangement.
+        </div>
+        <!-- end of qa7 -->
+
     </div>
 
     <script>
-        $(".faq-box").click(function () {
-            $('.faq-content').slideToggle(500);
+        $(".faq-head").click(function () {
+            $(".faq-content").slideToggle(500);
+        });
+    </script>
+    <script>
+        $(".panel-q").click(function () {
+            //var isVis = $(this).next().is(":visible");
+
+            $(this).next().slideToggle(500);
+
+            var isHidden = $(this).next().is(":hidden");
+            if (isHidden) {
+                $("panel.a").each().hide();
+            };
+
+            $(this).toggleClass("red-panel");
         });
     </script>
 
-    <p>Hello from our PREPAID PRODUCT</p>
+    <br /><br />
+    <p>PREPAID PRODUCT</p>
 </body>
